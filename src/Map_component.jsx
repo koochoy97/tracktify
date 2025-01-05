@@ -78,5 +78,11 @@ export function Map_component() {
     };
   }, []);
 
-  return <div className="w-full h-full" id="map" ref={mapContainerRef}></div>;
+  return (
+    <div
+      className="w-full h-full rounded-2xl  "
+      id="map"
+      ref={mapContainerRef}
+    ></div>
+  );
 }

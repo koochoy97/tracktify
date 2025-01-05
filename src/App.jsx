@@ -8,7 +8,7 @@ import { Home } from "./Home";
 import { Footer } from "./Footer";
 import { Explorer } from "./Explorer";
 
-import { DataContextProvider } from "./Context/Map_context";
+import { DataContextProvider } from "./Context/Data_context";
 
 function App() {
   return (
