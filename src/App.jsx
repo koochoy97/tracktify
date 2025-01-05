@@ -8,12 +8,16 @@ import { Home } from "./Home";
 import { Footer } from "./Footer";
 import { Explorer } from "./Explorer";
 
+import { DataContextProvider } from "./Context/Map_context";
+
 function App() {
   return (
     <div className="bg-[#FAFCF7] h-screen flex flex-col items-center justify-between">
-      <Header />
-      <Explorer />
-      <Footer />
+      <DataContextProvider>
+        <Header />
+        <Explorer />
+        <Footer />
+      </DataContextProvider>
     </div>
   );
 }
