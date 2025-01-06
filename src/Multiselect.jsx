@@ -3,10 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useState, useEffect } from "react";
 
 export function MultiSelect(props) {
-  const [option_selected, setOption_selected] = useState([
-    props.placeholder,
-    "Hola",
-  ]);
+  const [option_selected, setOption_selected] = useState([props.placeholder]);
   const [options, setOptions] = useState(props.options);
 
   useEffect(() => {
@@ -90,7 +87,7 @@ export function MultiSelect(props) {
                 >
                   {option.nombre}
                   {option.selected ? (
-                    <img src="/icons/X.png" className="w-[14px]" alt="" />
+                    <img src="/icons/check.svg" className="w-[23px]" alt="" />
                   ) : (
                     ""
                   )}

@@ -10,6 +10,7 @@ export function DataContextProvider(props) {
   const [trails, setTrails] = useState([]);
   const [locations, setLocations] = useState([]);
   const [dificultad_options, setDificultad_options] = useState([]);
+  const [features_options, setFeatures_options] = useState([]);
 
   const get_records = async (table, sort_field, sort_operator) => {
     try {
@@ -29,6 +30,11 @@ export function DataContextProvider(props) {
 
         case "dificultad_trails":
           setDificultad_options(records);
+          break;
+
+        case "features":
+          setFeatures_options(records);
+          break;
       }
 
       return records; // Devolver los registros
@@ -40,7 +46,13 @@ export function DataContextProvider(props) {
 
   return (
     <DataContext.Provider
-      value={{ get_records, trails, locations, dificultad_options }}
+      value={{
+        get_records,
+        trails,
+        locations,
+        dificultad_options,
+        features_options,
+      }}
     >
       {props.children} {/* Aquí se renderizan los componentes hijos */}
     </DataContext.Provider>

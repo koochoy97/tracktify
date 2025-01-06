@@ -3,10 +3,12 @@ import { DataContext } from "./Context/Data_context";
 import { Map_component } from "./Map_component";
 import { TrailLocation_item } from "./TrailLocation_item";
 import { Explorer_filter } from "./Explorer_filter";
+import { Mountain_loader } from "./Mountain_loader";
 
 export function Explorer() {
   const { get_records, trails, locations } = useContext(DataContext);
   const [trails_or_locations, setTrails_or_locations] = useState("trails");
+  const [loading_trails, setLoading_trails] = useState(true);
 
   const handle_trail_or_location_selection = (selection) => {
     if (selection === "trails") {
@@ -20,6 +22,15 @@ export function Explorer() {
     get_records("view_trails_with_dificultad_lugares", "nombre", "-");
     get_records("lugares", "nombre", "-");
   }, []);
+
+  useEffect(() => {
+    console.log(loading_trails);
+    if (trails.length === 0) {
+      setLoading_trails(true);
+    } else {
+      setLoading_trails(false);
+    }
+  }, [trails]);
 
   return (
     <div className="flex flex-col w-full h-full justify-start pt-6 overflow-hidden">
@@ -56,6 +67,8 @@ export function Explorer() {
             </p>
           </div>
           {/* TRAILS ITEMS */}
+          <Mountain_loader show={loading_trails} width="w-[100px]" />
+
           {trails_or_locations === "trails" ? (
             <div className="items_container flex flex-col gap-10 overflow-y-scroll px-2">
               {trails.map((item) => {
