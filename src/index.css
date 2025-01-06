@@ -5,3 +5,7 @@
 * {
   font-family: "Plus Jakarta Sans";
 }
+
+.shadow_bottom {
+  box-shadow: rgba(0, 0, 0, 0.297) 0px 10px 10px -10px;
+}

@@ -8,6 +8,8 @@ export function DataContextProvider(props) {
   const pb = new PocketBase("https://mtb.pockethost.io");
   pb.autoCancellation(false);
   const [trails, setTrails] = useState([]);
+  const [locations, setLocations] = useState([]);
+  const [dificultad_options, setDificultad_options] = useState([]);
 
   const get_records = async (table, sort_field, sort_operator) => {
     try {
@@ -20,7 +22,15 @@ export function DataContextProvider(props) {
         case "view_trails_with_dificultad_lugares":
           setTrails(records);
           break;
+
+        case "lugares":
+          setLocations(records);
+          break;
+
+        case "dificultad_trails":
+          setDificultad_options(records);
       }
+
       return records; // Devolver los registros
     } catch (error) {
       console.error("Error al obtener los registros:", error);
@@ -29,7 +39,9 @@ export function DataContextProvider(props) {
   };
 
   return (
-    <DataContext.Provider value={{ get_records, trails }}>
+    <DataContext.Provider
+      value={{ get_records, trails, locations, dificultad_options }}
+    >
       {props.children} {/* Aquí se renderizan los componentes hijos */}
     </DataContext.Provider>
   );
