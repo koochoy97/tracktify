@@ -2,9 +2,14 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 
-export function Dropdown(props) {
+type Props = {
+  options: any[];
+  placeholder: string;
+};
+
+export function Dropdown(props: Props) {
   const [option_selected, setOption_selected] = useState(props.placeholder);
-  const handleOnClick = (option) => {
+  const handleOnClick = (option: string) => {
     setOption_selected(option);
   };
   return (

@@ -10,7 +10,7 @@ export function Explorer() {
   const [trails_or_locations, setTrails_or_locations] = useState("trails");
   const [loading_trails, setLoading_trails] = useState(true);
 
-  const handle_trail_or_location_selection = (selection) => {
+  const handle_trail_or_location_selection = (selection: string) => {
     if (selection === "trails") {
       setTrails_or_locations(selection);
     } else if (selection === "locations") {
@@ -104,9 +104,6 @@ export function Explorer() {
                       "/" +
                       item.foto_destacada
                     }
-                    location={item.lugar_nombre}
-                    description={item.descripcion}
-                    dificultad={item.dificultad_nombre}
                   />
                 );
               })}

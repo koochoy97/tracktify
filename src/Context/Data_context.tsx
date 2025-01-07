@@ -17,7 +17,8 @@ type Trail = {
 type Location = {
   id: string;
   nombre: string;
-  description: string;
+  descipcion: string;
+  foto_destacada: string;
 };
 
 type Dificultad_options = {
